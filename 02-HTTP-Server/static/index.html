@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Go Web Test</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<h1>Go Web Test Page</h1>
+
+<!-- GET запрос -->
+<h2>Send GET request</h2>
+<input type="text" id="tokenInput" placeholder="Enter token">
+<button onclick="sendToken()">Send</button>
+
+<p id="response"></p>
+
+<script>
+function sendToken() {
+    const token = document.getElementById("tokenInput").value;
+
+    fetch(`/?token=${token}`)
+        .then(res => res.text())
+        .then(data => {
+            document.getElementById("response").innerText = data;
+        });
+}
+</script>
+
+</body>
+</html>
